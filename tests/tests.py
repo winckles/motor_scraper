@@ -16,26 +16,5 @@ def test_collect_urls_different_keyword():
 
 def test_collect_urls():
     scrape = MotorScraper()
-    assert len(scrape.collect_urls(1, ['kawasaki'])) == 20
-
-
-# def test_correct_division():
-#     calc = Calculator(10)
-#     assert calc.divide(2) == 5
-#
-#
-# def test_divide_by_zero_error():
-#     calc = Calculator()
-#     with pytest.raises(ZeroDivisionError):
-#         calc.divide(0)
-#
-#
-# def test_take_root():
-#     calc = Calculator(16)
-#     assert calc.take_root(1) == 16
-#
-#
-# def test_take_root_by_zero_error():
-#     calc = Calculator()
-#     with pytest.raises(ZeroDivisionError):
-#         calc.take_root(0)
+    check = scrape.collect_urls(1, ['kawasaki'])
+    assert len(check) == 20
