@@ -1,6 +1,6 @@
-# motor_scraper
+# Motor_scraper
 
-motor_scraper is a Python package to scrape [autoscout.nl](autoscout.nl)
+Motor_scraper is a Python package to scrape [autoscout.nl](autoscout.nl) items and returns the brand, price, mileage, kw, cc, year, category and fuel in a DataFrame.
 
 
 Table of content
@@ -17,20 +17,36 @@ To run this calculator package please take a look at the following instructions
 
 1. Install the package
 ```
-pip install git+https://github.com/winckles/calculator_package.git`
+pip install git+https://github.com/winckles/motor_scraper.git`
 ```
 2. Import the class
 ```
-from calculator_package import Calculator
+from package import MotorScraper
 ```
 3. Create an object and use the functions
 ```
-calculator = Calculator()
-calculator.add(5)
+scrape = MotorScraper()
+test_list = scrape.collect_urls(5, ['kawasaki'])
 ```
 
 ### Getting Started
-This calculator package lets you perform basic arithmetic functions, and the calculator stores the result in its memory. More explanation on arithmetic can be found [here](https://courses.lumenlearning.com/boundless-algebra/chapter/introduction-to-arithmetic-operations/#:~:text=Key%20Points-,The%20basic%20arithmetic%20operations%20for%20real%20numbers%20are%20addition%2C%20subtraction,%2C%20associative%2C%20and%20distributive%20properties)
+First, run `collect_urls()` with the required number of pages and a list with keywords and save it into a list. Then run `collect_info()` and input the list to get a dataframe.
+See the list below for all the possible keywords: 
+- kawasaki
+  
+- bmw
+  
+- honda
+  
+- yamaha 
+  
+- ktm 
+  
+- piaggio
+  
+- harley-davidson
+  
+- ducati
 
 ### Technologies
 For the used packages and technologies view the [requirements.txt](requirements.txt) file.
