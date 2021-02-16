@@ -9,5 +9,5 @@ setup(
     url="https://github.com/winckles/motor_scraper",
     py_modules=["package"],
     package_dir={'': 'scraper'},
-    python_requires='>=3.9',
+    python_requires='>=3.6',
 )
