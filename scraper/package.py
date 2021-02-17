@@ -153,6 +153,6 @@ class MotorScraper:
         }
 
         df = pd.DataFrame.from_dict(dict_, orient='index')
-        df = df.transpose()
+        # df = df.transpose()
 
         return df
