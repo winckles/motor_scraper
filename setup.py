@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='motor_scraper',
-    version='0.0.1',
+    version='0.0.3',
     author="Lorence Cramwinckel",
     author_email="lorcr@live.nl",
     description='A simple scraper package',
