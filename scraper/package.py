@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
+brand_list, price_list, km_list, kw_list, year_list, new_list, cc_list, fuel_list = ([] for i in range(8))
+
 
 class MotorScraper:
     """
@@ -123,7 +125,6 @@ class MotorScraper:
     def collect_info(search_list: list) -> pd.DataFrame:
         """ Scrape url for number of pages and a keyword
         and returns a pandas dataframe"""
-        brand, price, km, kw, year, new, cc, fuel = ([] for i in range(8))
 
         for urls in search_list:
             url = f"https://www.autoscout24.nl{urls}"
@@ -132,14 +133,14 @@ class MotorScraper:
             page = requests.get(url, headers=headers)
             soup = BeautifulSoup(page.content, "html.parser")
 
-            price = MotorScraper.__get_price(soup, price)
-            km = MotorScraper.__get_km(soup, price)
-            kw = MotorScraper.__get_kw(soup, price)
-            year = MotorScraper.__get_year(soup, price)
-            brand = MotorScraper.__get_brand(soup, price)
-            new = MotorScraper.__get_new(soup, price)
-            fuel = MotorScraper.__get_fuel(soup, price)
-            cc = MotorScraper.__get_cc(soup, price)
+            price = MotorScraper.__get_price(soup, price_list)
+            km = MotorScraper.__get_km(soup, km_list)
+            kw = MotorScraper.__get_kw(soup, kw_list)
+            year = MotorScraper.__get_year(soup, year_list)
+            brand = MotorScraper.__get_brand(soup, brand_list)
+            new = MotorScraper.__get_new(soup, new_list)
+            fuel = MotorScraper.__get_fuel(soup, fuel_list)
+            cc = MotorScraper.__get_cc(soup, cc_list)
 
         dict_ = {
             "brand": brand,
@@ -153,6 +154,6 @@ class MotorScraper:
         }
 
         df = pd.DataFrame.from_dict(dict_, orient='index')
-        # df = df.transpose()
+        df = df.transpose()
 
         return df
